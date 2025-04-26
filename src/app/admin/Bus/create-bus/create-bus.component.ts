@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BusService } from '../../Service/bus.service';
-import { Bus } from '../../Interface/bus';
+import { BusService } from '../../../Service/bus.service';
+import { Bus } from '../../../Interface/bus';
 import { Modal } from 'bootstrap';
 import Swal from 'sweetalert2';
 

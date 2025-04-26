@@ -1,7 +1,7 @@
 // list-bus.component.ts
 import { Component, OnInit } from '@angular/core';
-import { BusService } from '../../Service/bus.service';
-import { Bus } from '../../Interface/bus';
+import { BusService } from '../../../Service/bus.service';
+import { Bus } from '../../../Interface/bus';
 import { Modal } from 'bootstrap'; // Para trabajar con el modal de Bootstrap
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -44,6 +44,7 @@ export class ListBusComponent implements OnInit {
       modal.show();
     }
   }
+
 
   editarBus(bus: Bus) {
     this.busSeleccionado = { ...bus }; // Copia para evitar mutaciones

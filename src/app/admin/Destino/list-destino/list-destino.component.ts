@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DestinoService } from '../../Service/destino.service';
-import { Destino } from '../../Interface/destino';
+import { DestinoService } from '../../../Service/destino.service';
+import { Destino } from '../../../Interface/destino';
 import Swal from 'sweetalert2';
 import { Modal } from 'bootstrap';
 import { CommonModule } from '@angular/common';

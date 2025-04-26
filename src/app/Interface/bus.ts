@@ -6,3 +6,4 @@ export interface Bus {
     capacidad: number;
     placa: string;
 }
+

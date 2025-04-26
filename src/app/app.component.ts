@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { ListBusComponent } from './Bus/list-bus/list-bus.component';
+import { ListBusComponent } from './admin/Bus/list-bus/list-bus.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { CreateBusComponent } from './Bus/create-bus/create-bus.component';
+import { CreateBusComponent } from './admin/Bus/create-bus/create-bus.component';
 
 @Component({
   selector: 'app-root',

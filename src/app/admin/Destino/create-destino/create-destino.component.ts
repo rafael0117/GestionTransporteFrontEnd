@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { DestinoService } from '../../Service/destino.service';
-import { Destino } from '../../Interface/destino';
+import { DestinoService } from '../../../Service/destino.service';
+import { Destino } from '../../../Interface/destino';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 
