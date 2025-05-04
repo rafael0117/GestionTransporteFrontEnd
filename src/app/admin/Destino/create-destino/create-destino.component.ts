@@ -47,6 +47,11 @@ export class CreateDestinoComponent implements OnChanges {
   
     const nombre = this.formDestino.value.nombre;
   
+    if (!this.destinoEditar && !this.imagenFile) {
+      Swal.fire('Error', 'Por favor selecciona una imagen', 'error');
+      return;
+    }
+  
     if (this.destinoEditar) {
       // Modo edición
       this.destinoService.actualizarDestino(this.destinoEditar.idDestino, nombre, this.imagenFile!).subscribe(() => {
@@ -65,5 +70,6 @@ export class CreateDestinoComponent implements OnChanges {
       });
     }
   }
+  
   
 }

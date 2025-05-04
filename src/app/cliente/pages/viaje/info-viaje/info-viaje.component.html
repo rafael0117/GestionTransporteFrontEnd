@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+<!-- info-viaje.component.html -->
+<div class="container">
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">
+    Información del Viaje <small>Detalles del viaje</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item active">Información del Viaje</li>
+  </ol>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <div class="row">
+        <!-- Columna para la información del viaje -->
+        <div class="col-lg-12">
+          
+          <ul class="list-group">
+            <li class="list-group-item">
+              <h5>Precio:</h5>
+              <p>{{ viaje?.precio | currency }}</p>
+            </li>
+            <li class="list-group-item">
+              <h6>Fecha de Salida:</h6>
+              <p>{{ viaje?.fechaSalida | date:'dd/MM/yyyy' }}</p>
+            </li>
+            <li class="list-group-item">
+              <h6>Fecha de Llegada:</h6>
+              <p>{{ viaje?.fechaLlegada | date:'dd/MM/yyyy' }}</p>
+            </li>
+            <li class="list-group-item" *ngIf="viaje">
+              <h6>Cantidad disponible:</h6>
+              <input type="number" 
+                     [(ngModel)]="cantidad" 
+                     name="cantidad" 
+                     min="1" 
+                     [max]="viaje.cantidadDisponible" 
+                     required>
+            </li>
+            <li class="list-group-item">
+              <h6>Bus Asignado:</h6>
+              <p>{{ viaje?.modelo }}</p>
+            </li>
+            <li class="list-group-item">
+                <h6>Capacidad del Bus:</h6>
+                <p>{{ viaje?.capacidad }}</p>
+              </li>
+
+
+          </ul>
+          <button type="submit" 
+                  class="btn btn-dark" 
+                  (click)="agregarAlCarrito()">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

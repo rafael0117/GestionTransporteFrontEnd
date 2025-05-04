@@ -1,3 +1,5 @@
+import { Destino } from "./destino";
+
 export interface Viaje {
   idViaje: number;
   fechaSalida: string;
@@ -10,4 +12,7 @@ export interface Viaje {
   capacidad: number;
   placa: string;
   nombre: string;
+  destino:Destino;
+  cantidadDisponible: number; 
+  
 }

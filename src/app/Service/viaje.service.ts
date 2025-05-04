@@ -31,4 +31,7 @@ export class ViajeService {
   eliminarViaje(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${this.baseUrl}/eliminar/${id}`);
   }
+  obtenerViajesPorDestino(idDestino: number): Observable<Viaje[]> {
+    return this.httpClient.get<Viaje[]>(`${this.baseUrl}/destino/${idDestino}`);
+  }
 }

@@ -8,7 +8,7 @@ import { CreateBusComponent } from './admin/Bus/create-bus/create-bus.component'
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterModule,ListBusComponent,CreateBusComponent,CommonModule,HttpClientModule],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

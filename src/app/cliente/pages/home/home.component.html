@@ -1,1 +1,33 @@
-<p>home works!</p>
+<!-- destinos.component.html -->
+<app-navbar></app-navbar>
+
+<div class="container mt-5 text-center">
+  <h1 class="mb-4">Bienvenido a nuestra Agencia de Viajes</h1>
+  <p class="lead">Explora nuestros destinos y planifica tu próxima aventura.</p>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let destino of destinos">
+      <div class="card h-100 shadow-sm">
+        <img
+          class="card-img-top"
+          [src]="destino.imagenUrl || 'https://via.placeholder.com/400x250?text=Destino'"
+          alt="Imagen del destino"
+          style="height: 200px; object-fit: cover;"
+        />
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title">{{ destino.nombre }}</h5>
+        </div>
+        <div class="card-footer bg-transparent border-top-0">
+          <!-- 🔄 Pasa el ID del destino por parámetro -->
+          <a [routerLink]="['/viajes-destino', destino.idDestino]" class="btn btn-outline-primary btn-block">
+            Ver Viajes
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

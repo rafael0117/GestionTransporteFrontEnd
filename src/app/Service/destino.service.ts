@@ -23,6 +23,7 @@ export class DestinoService {
     formData.append('imagen', imagen);
     return this.http.post<Destino>(`${this.apiUrl}/crear`, formData);
   }
+  
 
   // Editar destino (imagen opcional)
   actualizarDestino(id: number, nombre: string, imagen?: File): Observable<Destino> {

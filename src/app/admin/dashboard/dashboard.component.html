@@ -1,0 +1,73 @@
+<div class="d-flex min-vh-100 bg-light">
+  <!-- Sidebar -->
+  <aside class="sidebar bg-white shadow-sm p-3 d-flex flex-column" style="width: 260px;">
+    <h4 class="text-primary mb-4 d-flex align-items-center gap-2">
+      <span class="fs-3">🅜</span> Motiv.
+    </h4>
+    <ul class="nav flex-column flex-grow-1">
+      <li class="nav-item mb-2">
+        <a class="nav-link text-dark d-flex align-items-center gap-2" [routerLink]="['/dashboard']">
+          <i class="bi bi-speedometer2"></i> Dashboard
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link text-dark d-flex align-items-center gap-2" [routerLink]="['/dashboard/listar-buses']">
+          <i class="bi bi-bus-front"></i> Buses
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link text-dark d-flex align-items-center gap-2" [routerLink]="['/dashboard/listar-destinos']">
+          <i class="bi bi-geo-alt"></i> Destinos
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link text-dark d-flex align-items-center gap-2" [routerLink]="['/dashboard/viajes']">
+          <i class="bi bi-map"></i> Viajes
+        </a>
+      </li>
+    </ul>
+    
+    <a class="nav-link text-danger mt-auto d-flex align-items-center gap-2" [routerLink]="['/logout']">
+      <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+    </a>
+  </aside>
+
+  <!-- Main content -->
+  <main class="flex-grow-1 d-flex flex-column">
+    <!-- Header -->
+    <nav class="navbar navbar-expand bg-white shadow-sm px-4 py-3">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <form class="d-none d-md-block w-25">
+          <input class="form-control rounded-pill" type="search" placeholder="🔍 Buscar..." />
+        </form>
+        <!-- Dropdown de Usuario -->
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="mdi mdi-account"></i> <!-- Icono de usuario -->
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" [routerLink]="['/profile']">
+                <i class="bi bi-person"></i> Perfil
+              </a></li>
+            <li><a class="dropdown-item" [routerLink]="['/inbox']">
+                <i class="bi bi-envelope"></i> Bandeja de Entrada
+              </a></li>
+            <li><a class="dropdown-item text-danger" [routerLink]="['/logout']">
+                <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenido dinámico -->
+    <section class="p-4 flex-grow-1 overflow-auto">
+      <router-outlet></router-outlet>  <!-- Aquí se carga el contenido dinámico -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white text-center py-2 border-top mt-auto">
+      <small class="text-muted">© 2025 Sistema de Gestión de Viajes</small>
+    </footer>
+  </main>
+</div>

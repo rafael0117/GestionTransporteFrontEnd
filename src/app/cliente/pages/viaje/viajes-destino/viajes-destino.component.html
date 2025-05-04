@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<!-- Banner del destino -->
+<div
+  class="banner-destino text-white d-flex align-items-center justify-content-center"
+  [ngStyle]="{
+    'background-image': 'url(' + imagenDestino + ')',
+    'background-size': 'cover',
+    'background-position': 'center',
+    height: '300px'
+  }"
+>
+  <h1 class="display-4 bg-dark bg-opacity-50 p-3 rounded">{{ nombreDestino }}</h1>
+</div>
+
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Viajes disponibles para este destino</h2>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let viaje of viajes">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ viaje.nombre }}</h5>
+          <p class="card-text">🚌 Modelo: {{ viaje.modelo }}</p>
+          <p class="card-text">📅 Salida: {{ viaje.fechaSalida }}</p>
+          <p class="card-text">📅 Llegada: {{ viaje.fechaLlegada }}</p>
+          <p class="card-text">💵 Precio: S/ {{ viaje.precio }}</p>
+          <a [routerLink]="['/viaje', viaje.idViaje]" class="btn btn-primary">Ver detalles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
