@@ -10,10 +10,12 @@ import { InfoViajeComponent } from './cliente/pages/viaje/info-viaje/info-viaje.
 import { ListPersonalComponent } from './admin/Personal/list-personal/list-personal.component';
 import { ListRevisionbusComponent } from './admin/RevisionBus/list-revisionbus/list-revisionbus.component';
 import { DashboardHomeComponent } from './admin/inicio/dashboard-home/dashboard-home.component';
+import { RegistrarComponent } from './auth/registrar/registrar.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegistrarComponent },
 
   // Nueva ruta añadida para los viajes por destino
   { path: 'viajes-destino/:id', component: ViajesDestinoComponent },
