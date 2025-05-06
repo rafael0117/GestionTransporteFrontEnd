@@ -1,1 +1,38 @@
-<p>list-revisionbus works!</p>
+<div class="container mt-4">
+    <h3>Lista de Revisiones de Buses</h3>
+    <button class="btn btn-primary" (click)="abrirModal()">Registrar Nueva Revisión</button>
+  
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Fecha de Revisión</th>
+          <th>Placa del Bus</th>
+          <th>Modelo</th>
+          <th>Personal Asignado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let revision of revisionBuses; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ revision.fechaRevision | date:'dd/MM/yyyy' }}</td>
+            <td>{{ revision.placaBus }}</td>
+            <td>{{ revision.modeloBus }}</td>
+            <td>{{ revision.nombresPersonal }} {{ revision.apellidosPersonal }}</td>
+            <td>
+              <button class="btn btn-warning me-2" (click)="editarRevision(revision)">Editar</button>
+              <button class="btn btn-danger" (click)="eliminarRevision(revision.idRevision)">Eliminar</button>
+            </td>
+          </tr>
+          
+      </tbody>
+    </table>
+  </div>
+  
+  <app-create-revisionbus
+  [revisionEditar]="revisionSeleccionada"
+  (revisionCreada)="cargarRevisiones()">
+</app-create-revisionbus>
+
+  

@@ -6,27 +6,43 @@
     </h4>
     <ul class="nav flex-column flex-grow-1">
       <li class="nav-item mb-2">
-        <a class="nav-link text-dark d-flex align-items-center gap-2" [routerLink]="['/dashboard']">
+        <a class="nav-link text-dark d-flex align-items-center gap-2" [routerLink]="['/dashboard/inicio']">
           <i class="bi bi-speedometer2"></i> Dashboard
         </a>
       </li>
-      <li class="nav-item mb-2">
+      
+
+      <!-- Solo ADMIN -->
+      <li class="nav-item mb-2" *ngIf="hasRole('ADMIN')">
         <a class="nav-link text-dark d-flex align-items-center gap-2" [routerLink]="['/dashboard/listar-buses']">
           <i class="bi bi-bus-front"></i> Buses
         </a>
       </li>
-      <li class="nav-item mb-2">
+      <li class="nav-item mb-2" *ngIf="hasRole('ADMIN')">
         <a class="nav-link text-dark d-flex align-items-center gap-2" [routerLink]="['/dashboard/listar-destinos']">
           <i class="bi bi-geo-alt"></i> Destinos
         </a>
       </li>
-      <li class="nav-item mb-2">
+
+      <!-- Solo SUPERVISOR -->
+      <li class="nav-item mb-2" *ngIf="hasRole('SUPER')">
         <a class="nav-link text-dark d-flex align-items-center gap-2" [routerLink]="['/dashboard/viajes']">
           <i class="bi bi-map"></i> Viajes
         </a>
       </li>
+      <li class="nav-item mb-2" *ngIf="hasRole('SUPER')">
+        <a class="nav-link text-dark d-flex align-items-center gap-2" [routerLink]="['/dashboard/listar-personal']">
+          <i class="bi bi-people"></i> Personal
+        </a>
+      </li>
+      <li class="nav-item mb-2" *ngIf="hasRole('SUPER')">
+        <a class="nav-link text-dark d-flex align-items-center gap-2" [routerLink]="['/dashboard/revision-buses']">
+          <i class="bi bi-tools"></i> Revisión Buses
+        </a>
+      </li>
+
     </ul>
-    
+
     <a class="nav-link text-danger mt-auto d-flex align-items-center gap-2" [routerLink]="['/logout']">
       <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
     </a>
@@ -43,18 +59,12 @@
         <!-- Dropdown de Usuario -->
         <div class="dropdown">
           <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="mdi mdi-account"></i> <!-- Icono de usuario -->
+            <i class="mdi mdi-account"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="userDropdown">
-            <li><a class="dropdown-item" [routerLink]="['/profile']">
-                <i class="bi bi-person"></i> Perfil
-              </a></li>
-            <li><a class="dropdown-item" [routerLink]="['/inbox']">
-                <i class="bi bi-envelope"></i> Bandeja de Entrada
-              </a></li>
-            <li><a class="dropdown-item text-danger" [routerLink]="['/logout']">
-                <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
-              </a></li>
+            <li><a class="dropdown-item" [routerLink]="['/profile']"><i class="bi bi-person"></i> Perfil</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/inbox']"><i class="bi bi-envelope"></i> Bandeja de Entrada</a></li>
+            <li><a class="dropdown-item text-danger" [routerLink]="['/logout']"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>
           </ul>
         </div>
       </div>
@@ -62,7 +72,7 @@
 
     <!-- Contenido dinámico -->
     <section class="p-4 flex-grow-1 overflow-auto">
-      <router-outlet></router-outlet>  <!-- Aquí se carga el contenido dinámico -->
+      <router-outlet></router-outlet>
     </section>
 
     <!-- Footer -->
